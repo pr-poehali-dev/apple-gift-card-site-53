@@ -2,6 +2,12 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Icon from "@/components/ui/icon";
 
 const giftCards = [
@@ -197,34 +203,81 @@ const Index = () => {
           <h2 className="text-3xl font-light text-center text-apple-dark mb-12">
             Часто задаваемые вопросы
           </h2>
-          <div className="space-y-6">
-            {[
-              {
-                question: "Как быстро я получу код карты?",
-                answer:
-                  "Код подарочной карты приходит на email мгновенно после подтверждения оплаты.",
-              },
-              {
-                question: "В каких странах действуют карты?",
-                answer:
-                  "Наши подарочные карты действуют в российском App Store и iTunes Store.",
-              },
-              {
-                question: "Есть ли срок действия у карт?",
-                answer:
-                  "Подарочные карты Apple не имеют срока действия и могут быть использованы в любое время.",
-              },
-            ].map((faq, index) => (
-              <Card key={index} className="border-0 shadow-sm">
-                <CardContent className="p-6">
-                  <h3 className="font-medium text-apple-dark mb-2">
-                    {faq.question}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full max-w-3xl mx-auto"
+          >
+            <AccordionItem value="item-1" className="border-b border-gray-200">
+              <AccordionTrigger className="hover:no-underline py-6 px-6 text-left">
+                <span className="text-lg font-medium text-apple-dark">
+                  Как быстро я получу код карты?
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-600">
+                  Код подарочной карты приходит на email мгновенно после
+                  подтверждения оплаты.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="border-b border-gray-200">
+              <AccordionTrigger className="hover:no-underline py-6 px-6 text-left">
+                <span className="text-lg font-medium text-apple-dark">
+                  В каких странах действуют карты?
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-600">
+                  Наши подарочные карты действуют в российском App Store и
+                  iTunes Store.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="border-b border-gray-200">
+              <AccordionTrigger className="hover:no-underline py-6 px-6 text-left">
+                <span className="text-lg font-medium text-apple-dark">
+                  Есть ли срок действия у карт?
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-600">
+                  Подарочные карты Apple не имеют срока действия и могут быть
+                  использованы в любое время.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="border-b border-gray-200">
+              <AccordionTrigger className="hover:no-underline py-6 px-6 text-left">
+                <span className="text-lg font-medium text-apple-dark">
+                  Какие способы оплаты доступны?
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-600">
+                  Мы принимаем банковские карты, СБП, Яндекс.Деньги и другие
+                  популярные способы оплаты.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="border-b-0">
+              <AccordionTrigger className="hover:no-underline py-6 px-6 text-left">
+                <span className="text-lg font-medium text-apple-dark">
+                  Можно ли вернуть подарочную карту?
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6">
+                <p className="text-gray-600">
+                  Возврат возможен в течение 14 дней, если карта не была
+                  активирована.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
